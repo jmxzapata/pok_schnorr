@@ -1,7 +1,7 @@
 # client/utils.py
 
 import coincurve
-from coincurve import PrivateKey, PublicKey
+from coincurve import PrivateKey
 import os
 
 def generate_keys():
@@ -23,7 +23,7 @@ def sign_challenge(private_key, challenge_int):
     Firma el desafío utilizando la clave privada con firmas Schnorr.
     """
     message = str(challenge_int).encode()
-    signature = private_key.sign_schnorr(message)
+    signature = private_key.schnorr_sign(message)  # Corrección aquí
     return signature.hex()
 
 def load_private_key(filepath):
@@ -31,7 +31,12 @@ def load_private_key(filepath):
     Carga la clave privada desde un archivo hexadecimal.
     """
     if not os.path.exists(filepath):
+        print(f"Archivo de clave privada no encontrado: {filepath}")
         return None
     with open(filepath, 'r') as f:
         private_hex = f.read().strip()
-    return PrivateKey(bytes.fromhex(private_hex))
+    try:
+        return PrivateKey(bytes.fromhex(private_hex))
+    except ValueError as e:
+        print(f"Error al cargar la clave privada: {e}")
+        return None

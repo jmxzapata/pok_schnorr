@@ -50,7 +50,7 @@ def authenticate_user():
     # Cargar la clave privada
     private_key = load_private_key(f"{username}_private_key.hex")
     if not private_key:
-        print("Clave privada no encontrada. Por favor, registra el usuario primero.")
+        print("Clave privada no encontrada o inválida. Por favor, registra el usuario primero.")
         return
 
     # Firmar el desafío

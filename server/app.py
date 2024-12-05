@@ -77,6 +77,8 @@ def authenticate():
 
     # Cargar la clave pública
     public_key = load_public_key(public_key_hex)
+    if public_key is None:
+        return jsonify({'message': 'Clave pública inválida'}), 400
 
     # Verificar la respuesta
     is_valid = verify_response(public_key, challenge, response)
