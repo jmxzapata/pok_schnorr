@@ -1,11 +1,5 @@
 {
     "pan": {
-        "public_key": "03e7b4fc0d24203506558940b2c0d3c92a37c34de1921eb295a94be84e787befa4"
-    },
-    "pedro": {
-        "public_key": "02ad21e4af01aaf5baa20662be57971efcbedcf4224edac280951856072b847968"
-    },
-    "lucas": {
-        "public_key": "0373484efa2c12b504967ca8e168973517b02ac8eceb74790244724e12c09b0ba8"
+        "public_key": "03e963a19cc2e4ed9644bbce29545056cd87e9d74afe663257863ea02e6d79638e"
     }
 }
